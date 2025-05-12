@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main()
+ {
+    char plaintext[1000];
+    char ciphertext[1000];
+    char key[26] = 
+	{
+        'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
+        'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z',
+        'X', 'C', 'V', 'B', 'N', 'M'
+    };
+    int i;
+    printf("Enter the plaintext: ");
+    scanf(" %[^\n]", plaintext); 
+    for (i = 0; plaintext[i] != '\0'; i++) {
+        char ch = plaintext[i];
+        if (ch >= 'A' && ch <= 'Z') {
+            ciphertext[i] = key[ch - 'A']; 
+        } else if (ch >= 'a' && ch <= 'z') {
+            ciphertext[i] = key[ch - 'a'] + 32; 
+        } else {
+            ciphertext[i] = ch; 
+        }
+    }
+    ciphertext[i] = '\0'; 
+    printf("Encrypted text: %s\n", ciphertext);
+    return 0;
+}
+//output:-
+Enter the plaintext: suresh
+Encrypted text: lxktli
